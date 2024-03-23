@@ -1,0 +1,27 @@
+@use '../../partials/variables' as*;
+
+.navbarnav {
+	width: 100%;
+	padding: 0;
+	
+	&__link {
+	background-color:$secondary-color;
+	
+	}
+
+	&__logo {
+		width: 4rem;
+
+	}
+
+	&__linkitem {
+		color: $primary-color;
+		font-size: $secondary-font;
+	}
+}
+
+
+
+
+
+

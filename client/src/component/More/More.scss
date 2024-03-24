@@ -8,10 +8,17 @@
 	&__title {
 		font-size: $primary-font;
 	@include  gradient;
+	@include mob {
+		font-size: 1.5rem;
+	}
 	}
 
 	&__para {
 		color: $primary-color;
+		@include mob {
+			width: 80%;
+			margin: 0 auto;
+		}
 	}
 
 	&__list {
@@ -19,11 +26,18 @@
 		margin: 4rem auto;
 		@include styling ;
 		display: grid;
+		padding-left: 0;
 		grid-template-columns: repeat(3, 1fr);
+		
+		@include tablet {
+			grid-template-columns: repeat(2, 1fr);
+			gap: 1rem;
+		}
 
 		@include mob {
-			grid-template-columns: repeat(1, 1fr);	
-		}
+			grid-template-columns: repeat(1, 1fr);
+		
+		}	
 	}
 
 	&__link {

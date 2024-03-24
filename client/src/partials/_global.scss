@@ -7,27 +7,47 @@
 	box-sizing: border-box;
   }
 
-$tablet-breakpoint: 768px;
-$desktop-breakpoint: 1280px;
+
 $mobile-breakpoint: 320px;
+$tablet-breakpoint: 426px;
 
-@mixin tablet {
-  @media (min-width: $tablet-breakpoint) {
-    @content;
-  }
-}
+$biggertablet-breakpoint: 426px;
+$moretablet-breakpoint: 768px;
 
-@mixin desktop {
-  @media (min-width: $desktop-breakpoint) {
-    @content;
-  }
-}
 
+
+// $desktop-breakpoint: 1280px;
+// Breakpoint between 320px and 425px
 @mixin mob {
-	@media (max-width: $tablet-breakpoint) {
+	@media (min-width: #{$mobile-breakpoint}) and (max-width: #{$tablet-breakpoint - 1px}) {
 	  @content;
 	}
   }
+
+  @mixin tablet {
+	@media (min-width: #{$biggertablet-breakpoint}) and (max-width: #{$moretablet-breakpoint - 1px}) {
+	  @content;
+	}
+  }
+// @mixin mob {
+// 	@media (max-width: $mobile-breakpoint) {
+// 	  @content;
+// 	}
+//   }
+
+// @mixin tablet {
+//   @media (max-width: $tablet-breakpoint) {
+//     @content;
+//   }
+// }
+
+// @mixin desktop {
+//   @media (min-width: $desktop-breakpoint) {
+//     @content;
+//   }
+// }
+
+
 
 // @mixin flex {
 // 	display: flex;

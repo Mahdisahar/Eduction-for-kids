@@ -29,6 +29,21 @@ $mobile-breakpoint: 320px;
 	}
   }
 
-@mixin flex {
-	display: flex;
+// @mixin flex {
+// 	display: flex;
+// }
+
+@mixin gradient {
+	background: linear-gradient(to right, #f32170, 
+                    #ff6b08, #cf23cf, #eedd44); 
+            -webkit-text-fill-color: transparent; 
+			background-clip: text; 
+}
+
+@mixin styling {
+	list-style: none;
+}
+
+@mixin decoration {
+	text-decoration: none;
 }

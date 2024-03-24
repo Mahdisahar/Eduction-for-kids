@@ -58,12 +58,3 @@ export default function Lesson() {
 	</div>
   )
 }
-// https://www.cbc.ca/kids/ games for fun
-// https://code.org/minecraft 
-// https://monkeytype.com/ test speeding
-// https://www.typing.com/
-// https://app.smartdraw.com/ for drawing bilding or design
-// https://www.math10.com/en/tests/ math quizzes
-
-// https://www.abcya.com/grades/k   kindergarden games
-// https://learn.codethedream.org/ganymede-intro/  code 

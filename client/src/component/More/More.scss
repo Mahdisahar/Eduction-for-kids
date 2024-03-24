@@ -1,0 +1,54 @@
+@use '../../partials/variables' as*;
+@use '../../partials/global' as *;
+
+.more {
+	text-align: center;
+	margin-top: 4rem;
+
+	&__title {
+		font-size: $primary-font;
+	@include  gradient;
+	}
+
+	&__para {
+		color: $primary-color;
+	}
+
+	&__list {
+		width: 70%;
+		margin: 4rem auto;
+		@include styling ;
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+
+		@include mob {
+			grid-template-columns: repeat(1, 1fr);	
+		}
+	}
+
+	&__link {
+		@include decoration;
+	}
+
+	&__subtitle {
+		color:$primary-color ;
+		margin-top: 1rem;
+		font-weight: bold;
+	}
+
+	&__item {
+		margin-bottom: 2rem;
+	}
+
+	&__image {
+		width: 10rem;
+		height: 10rem;
+		border-radius: 50%;
+		transition: transform 1s ease-in-out;
+	
+	&:hover {
+		cursor: pointer;
+		  transform: scale(1.05);	
+	}
+	}
+}

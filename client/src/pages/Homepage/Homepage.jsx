@@ -3,6 +3,8 @@ import './Homepage.scss';
 import NavbarLink from '../../component/Navbar/Navbar';
 import Header from '../../component/Header/Header';
 import Lesson from '../../component/Lesson/Lesson';
+import Learning from '../../component/Learning/Learning';
+import More from '../../component/More/More';
 
 function Homepage() {
   return (
@@ -10,6 +12,8 @@ function Homepage() {
 		<NavbarLink/>
 		<Header />
 		<Lesson />
+		<Learning />
+		<More />
 
 	</div>
   )

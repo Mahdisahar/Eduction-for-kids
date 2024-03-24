@@ -11,10 +11,7 @@
 
 	&__title {
 		font-size: $primary-font;
-	background: linear-gradient(to right, #f32170, 
-                    #ff6b08, #cf23cf, #eedd44); 
-            -webkit-text-fill-color: transparent; 
-			background-clip: text; 
+		@include  gradient;
 
 }
 
@@ -22,7 +19,7 @@
 	width: 70%;
 	margin: 2rem auto;
 	gap: 1rem;
-	list-style: none;
+	@include styling;
 	padding-left: 0;
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
@@ -41,9 +38,7 @@
 	
 	&:hover {
 		cursor: pointer;
-		
-		  transform: scale(1.05);
-		
+		  transform: scale(1.05);	
 	}
 
 	@include mob {
@@ -52,7 +47,7 @@
 }
 
 &__link {
-	text-decoration: none;
+	@include decoration;
 }
 
 &__subtitle {

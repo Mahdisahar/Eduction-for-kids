@@ -1,60 +1,39 @@
 import './Lesson.scss';
-import React from 'react'
-import mathImage from '../../images/math.gif';
-import englishImage from '../../images/english.gif';
-import scienceImage from '../../images/science.gif';
-import quezzImage from '../../images/quizzes.gif';
-import typingImage from '../../images/typing.gif';
-import gamesImage from '../../images/games.gif';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
+const Base_URL = 'http://localhost:8085';
 
 export default function Lesson() {
+  const [getLesson, setGetLesson] = useState([]);
+
+  useEffect(() => {
+    async function getData() {
+      try {
+        const response = await axios.get(`${Base_URL}/lesson`);
+        const getLessonData = response.data;
+        console.log('getLessonData', getLessonData);
+        setGetLesson(getLessonData);
+      } catch (error) {
+        console.log('Error fetching data', error);
+      }
+    }
+    getData();
+  }, []);
+
   return (
-	<div className='lesson'>
-		<h1 className='lesson__title'>Lessons & Practice</h1>
-		<ul className='lesson__list'>
-			<li className='lesson__item'>
-					<Link className='lesson__link' to="https://www.khanacademy.org/math/get-ready-courses">
-				<img className='lesson__image' src={mathImage} alt="math" />
-				<h3 className='lesson__subtitle'>Math</h3>
-				</Link>		
-			</li>
-
-			<li className='lesson__item'>
-				<Link className='lesson__link' to="https://www.learningchocolate.com">
-				<img className='lesson__image' src={englishImage} alt="english" />
-				<h3 className='lesson__subtitle'>English</h3>
-				</Link>
-			</li>
-
-			<li className='lesson__item'>
-				<Link className='lesson__link' to="https://www.esa.int/kids">
-				<img className='lesson__image' src={scienceImage} alt="science" />
-				<h3 className='lesson__subtitle'>Science</h3>
-				</Link>
-			</li>
-
-			<li className='lesson__item'>
-				<Link className='lesson__link' to="https://www.mathopolis.com/questions/quizzes.php">
-				<img className='lesson__image' src={quezzImage} alt="quizzes" />
-				<h3 className='lesson__subtitle'>Quizzes</h3>
-				</Link>
-			</li>
-
-			<li className='lesson__item'>
-				<Link className='lesson__link' to="https://sd43burke.typingclub.com">
-				<img className='lesson__image' src={typingImage} alt="typing" />
-				<h3 className='lesson__subtitle'>Typing</h3>
-				</Link>
-			</li>
-
-			<li className='lesson__item'>
-				<Link className='lesson__link' to="https://www.gamestolearnenglish.com">
-				<img className='lesson__image' src={gamesImage} alt="games" />
-				<h3 className='lesson__subtitle'>Games</h3>
-				</Link>
-			</li>
-		</ul>
-	</div>
-  )
+    <div className='lesson'>
+      <h1 className='lesson__title'>Lessons & Practice</h1>
+      <ul className='lesson__list'>
+        {getLesson.map((Lessons) => (
+          <li className='lesson__item' key={Lessons.id}>
+            <Link className='lesson__link' to={Lessons.website}>
+			<img className='lesson__image' src={Lessons.image} alt={Lessons.alt} />
+              <h3 className='lesson__subtitle'>{Lessons.title}</h3>
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
 }

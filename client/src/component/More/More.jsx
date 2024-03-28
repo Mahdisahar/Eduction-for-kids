@@ -26,7 +26,7 @@ export default function More() {
         <li className='more__item'>
           <Link className='more__link' to='https://code.org/minecraft'>
             <img className='more__image' src={mincraftImage} alt='mingraft' />
-            <p className='more__subtitle'>Mincraft</p>
+            <p className='more__subtitle'>Minecraft</p>
           </Link>
         </li>
 

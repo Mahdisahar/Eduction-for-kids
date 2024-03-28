@@ -29,30 +29,7 @@ $moretablet-breakpoint: 768px;
 	  @content;
 	}
   }
-// @mixin mob {
-// 	@media (max-width: $mobile-breakpoint) {
-// 	  @content;
-// 	}
-//   }
-
-// @mixin tablet {
-//   @media (max-width: $tablet-breakpoint) {
-//     @content;
-//   }
-// }
-
-// @mixin desktop {
-//   @media (min-width: $desktop-breakpoint) {
-//     @content;
-//   }
-// }
-
-
-
-// @mixin flex {
-// 	display: flex;
-// }
-
+  
 @mixin gradient {
 	background: linear-gradient(to right, #f32170, 
                     #ff6b08, #cf23cf, #eedd44); 
@@ -66,4 +43,8 @@ $moretablet-breakpoint: 768px;
 
 @mixin decoration {
 	text-decoration: none;
+}
+
+@mixin flex {
+	display: flex;
 }

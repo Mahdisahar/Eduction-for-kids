@@ -12,7 +12,6 @@ export default function Lesson() {
       try {
         const response = await axios.get(`${Base_URL}/lesson`);
         const getLessonData = response.data;
-        console.log('getLessonData', getLessonData);
         setGetLesson(getLessonData);
       } catch (error) {
         console.log('Error fetching data', error);

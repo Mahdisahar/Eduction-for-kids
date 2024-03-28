@@ -9,4 +9,5 @@ router.get('/', (req,res) => {
 	res.status(200).send(readDataJson);
 });
 
+
 module.exports = router;

@@ -9,7 +9,7 @@ require('dotenv').config({path: './.env'});
 const PORT = process.env.PORT;
 
 const lessonRoute = require('./Route/lessonRoute');
-// const commentsRouter = require('./Route/commentsRoute');
+const commentsRouter = require('./Route/commentsRoute');
 // Middleware setup
 
 app.use(express.static('public'));
@@ -18,7 +18,7 @@ app.use(express.json());
 
 
 app.use('/lesson', lessonRoute);
-app.use('/comment', lessonRoute);
+app.use('/comment', commentsRouter);
 
 app.listen(PORT, ()=> {
 	console.log(`Server is running on Port: ${PORT}`);

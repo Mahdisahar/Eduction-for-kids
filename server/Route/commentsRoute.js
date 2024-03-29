@@ -23,7 +23,7 @@ router.post('/', (req, res) => {
 		id:uuid(),
 		
 	};
-	commentsData.push(newComment);
+	commentsData.unshift(newComment);
 
 	const writeData = JSON.stringify(commentsData);
 	fs.writeFileSync('./data/comment.json', writeData);

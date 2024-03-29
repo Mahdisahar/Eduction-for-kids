@@ -17,6 +17,18 @@ const [comments, setComments] = useState([]);
 	setFormError({...formError, [name]: ''});
   }
 
+  const fetchComments = async () => {
+	try {
+		const response = await axios.get(`${Base_URL}/comment`);
+		setComments(response.data);
+
+	} catch (error) {
+		console.log('Error fetching comments', error);
+
+	}
+  };
+  fetchComments();
+
 const validate = (values) => {
 	const errors = {};
 	if(!values.name) {
@@ -91,8 +103,10 @@ const validate = (values) => {
 	  <ul className='comment__list'>
 		{comments.map((comment) => (
 			<li key={comment.id} className='comment__item'>
-			<h3 className='comment__subtitle'>name:{comment.name} </h3>
-			<h3 className='comment__subtitle2'>Comment:{comment.comment} </h3>
+			<h3 className='comment__subtitle'>{comment.name} </h3>
+			<h3 className='comment__subtitle2'>{comment.comment} </h3>
+			<button className='comment__delete'>Delete</button>
+			{/* <button>Edit</button> */}
 		</li>
 		))}
 	  </ul>

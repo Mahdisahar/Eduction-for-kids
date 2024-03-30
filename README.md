@@ -4,7 +4,8 @@ Creating a responsive website dedicated to free learning resources for all ages 
 Divide resources into categories such as Math, Science, English Language, Typing. Display resources in a grid. Include tags for each resource, and Clicking on a resource should lead to a detailed page providing more information.
 
 ### Problem
-Our kids feel struggle to study and these free resourses 
+If children are struggling to learn these free resources provide the solutions:
+It offer a diverse range of resources including interactive games, videos, hands-on activities. Allow children to explore topics they're passionate about by providing a wide variety of subjects and topics.
 
 
 ## Implementation

@@ -12,7 +12,7 @@ export default function Comment() {
   const [formError, setFormError] = useState({});
   const [comments, setComments] = useState([]);
   const [getComment, setGetComment] = useState([]);
-
+ 
   const date = new Date();
   const formatedDate = `${('0' + (date.getMonth() + 1)).slice(-2)}/${(
     '0' + date.getDate()
@@ -34,19 +34,29 @@ export default function Comment() {
     }
     return errors;
   };
+
   const fetchComments = async () => {
     try {
       const response = await axios.get(`${Base_URL}/comment`);
       setGetComment( response.data);
     } catch (error) {
       console.log('Error fetching comments', error);
-    }
-	
+    }	
   };
 
   useEffect(() => {
 	fetchComments();
   }, []);
+
+  const deleteComment = async(id) => {
+	try {
+		await axios.delete(`${Base_URL}/comment/${id}`);
+		// setDeleteComments(comments => comments.filter(comment => comment.id !== id));
+		fetchComments();
+	} catch (error) {
+		console.log('Error deleting comment:', error);
+	}
+  };
 
   async function handleForm(event) {
     event.preventDefault();
@@ -68,14 +78,6 @@ export default function Comment() {
       console.log('Error posting new Comment', error);
     }
   }
-
-
-
-
-
-//   useEffect(() => {
-// 	fetchComments();
-//   }, []);
 
   return (
     <div className='comment'>
@@ -133,8 +135,7 @@ export default function Comment() {
 				</div>
 			</div>  
             <p className='comment__subtitle2'>{comment.comment} </p>
-            <button className='comment__delete'>Remove</button>
-            {/* <button>Edit</button> */}
+            <button className='comment__delete' onClick={() => deleteComment(comment.id)} >Remove</button>
           </li>
         ))}
       </ul>

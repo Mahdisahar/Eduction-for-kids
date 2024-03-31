@@ -3,10 +3,12 @@ import './More.scss';
 import cbcImage from '../../images/cbc.jpg';
 import mincraftImage from '../../images/mincraft.jpg';
 import speedingImage from '../../images/typing.jpg';
-// import drawingImage from '../../images/draw.png';
 import mathTestImage from '../../images/math-quiz-game.png';
 import abcImage from '../../images/abcya.png';
 import codeImage from '../../images/code.jpg';
+import KhanImage from '../../images/khan.jpg';
+import worksheetsImage from '../../images/worksheets.jpg';
+import antonImage from '../../images/anton.jpg';
 
 import { Link } from 'react-router-dom';
 
@@ -37,13 +39,6 @@ export default function More() {
           </Link>
         </li>
 
-		{/* <li className='more__item'>
-          <Link to='https://app.smartdraw.com/'>
-            <img className='more__image' src={drawingImage} alt='draw' />
-            <p className='more__subtitle'>Smart Drawing</p>
-          </Link>
-        </li> */}
-
 		<li className='more__item'>
           <Link className='more__link' to='https://www.math10.com/en/tests/ '>
             <img className='more__image' src={mathTestImage} alt='test' />
@@ -64,17 +59,28 @@ export default function More() {
             <p className='more__subtitle'>Code The Dream</p>
           </Link>
         </li>
+
+		<li className='more__item'>
+          <Link className='more__link' to='https://learn.khanacademy.org/khan-academy-kids/'>
+            <img className='more__image' src={KhanImage} alt='story' />
+            <p className='more__subtitle'>Stories</p>
+          </Link>
+        </li>
+
+		<li className='more__item'>
+          <Link className='more__link' to='https://www.k5learning.com/'>
+            <img className='more__image' src={worksheetsImage} alt='worksheets' />
+            <p className='more__subtitle'>WorkSheets</p>
+          </Link>
+        </li>
+
+		<li className='more__item'>
+          <Link className='more__link' to='https://anton.app/en_us/'>
+            <img className='more__image' src={antonImage} alt='anton' />
+            <p className='more__subtitle'>Anton Learning App</p>
+          </Link>
+        </li>
       </ul>
     </div>
   );
 }
-
-// https://www.cbc.ca/kids/ games for fun
-// https://code.org/minecraft
-// https://monkeytype.com/ test speeding
-// https://www.typing.com/
-// https://app.smartdraw.com/ for drawing bilding or design
-// https://www.math10.com/en/tests/ math quizzes
-
-// https://www.abcya.com/grades/k   kindergarden games
-// https://learn.codethedream.org/ganymede-intro/  code

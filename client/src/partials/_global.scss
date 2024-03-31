@@ -5,6 +5,7 @@
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
+	scroll-behavior: smooth;
   }
 
 
@@ -35,6 +36,11 @@ $moretablet-breakpoint: 768px;
                     #ff6b08, #cf23cf, #eedd44); 
             -webkit-text-fill-color: transparent; 
 			background-clip: text; 
+}
+
+@mixin backgroud-gradient {
+	background: linear-gradient(90deg, rgba(36,0,33,1) 0%, rgb(82, 3, 125) 35%, rgb(141, 59, 241) 100%);
+
 }
 
 @mixin styling {

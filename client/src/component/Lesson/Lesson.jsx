@@ -21,7 +21,7 @@ export default function Lesson() {
   }, []);
 
   return (
-    <div className='lesson'>
+    <div className='lesson' id='lesson'>
       <h1 className='lesson__title'>Lessons & Practice</h1>
       <ul className='lesson__list'>
         {getLesson.map((Lessons) => (

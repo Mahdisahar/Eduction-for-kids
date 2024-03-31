@@ -1,0 +1,30 @@
+@use '../../partials/variables' as*;
+@use '../../partials/global' as *;
+
+.contact {
+	min-height: 15rem;
+		@include backgroud-gradient;
+
+		&__container {
+			@include flex;
+			justify-content: center;
+
+			@include mob {
+				flex-direction: column;
+			}
+
+		}
+		&__email, &__address, &__phone {
+			color: $secondary-color;
+			margin: 4rem;
+
+			@include mob {
+				margin: 1.5rem 0 0 1.5rem;
+			}
+			@include tablet {
+				margin: 4rem 1rem;
+			}
+
+		}
+	
+}

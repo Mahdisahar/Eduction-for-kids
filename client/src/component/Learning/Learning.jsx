@@ -3,7 +3,7 @@ import './Learning.scss';
 
 export default function Learning() {
   return (
-    <div className='learning'>
+    <div className='learning' id='learning'>
       <h1 className='learning__title'>NEVER STOP LEARNING</h1>
       <h5 className='learning__para'>
         Our vision is to be the source for kids learning on the internet

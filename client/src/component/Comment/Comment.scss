@@ -58,10 +58,10 @@
 	&__button {
 		text-align: center;
 	}
-	&__btn, &__delete {
+	&__btn  {
 		width: 60%;
 		padding: 0.5rem;
-		background-color: $primary-color;
+		@include backgroud-gradient;
 		color: $secondary-color;
 		font-weight: bold;
 		border: 1px solid $primary-color;
@@ -69,9 +69,11 @@
 	}
 
 	&__delete {
-		width:20%;
 		margin: 1rem;
-		background-color: $comment-color;
+		color: $primary-color;
+		border: none;
+		font-weight: bold;
+		background-color: $secondary-color;
 	}
 
 	&__list {
@@ -86,19 +88,36 @@
 	&__item {
 		border-radius: 9px;
 		margin-bottom: 1rem;
-		background-image: url('../../images/light.jpg');
+		border: 2px solid rgba($primary-color, 0.2);
 	}
 
 	&__subtitle, &__subtitle2 {
-		padding: 1rem;
-		border-bottom: 2px solid $comment-color;
-		color: $secondary-color;
+		padding-top: 1.5rem;
+		color: $primary-color;
 	}
+
 	&__subtitle2 {
-		border-bottom: none;
+		padding-left: 1rem;
+
 	}
+	
 	&__error {
 		color: red;
+	}
+
+	&__formatdate {
+		color: $primary-color;
+	}
+
+	&__commentscontainer {
+		@include flex;
+
+		&--image {
+			margin: 1rem;
+			width:4rem;
+			height: 4rem;
+
+		}
 	}
 
 

@@ -2,12 +2,12 @@
 @use '../../partials//global' as *;
 .header {
   height: 25rem;
-  background-image: url('../../images/background.png');
+background-image: url('../../images/purple.jpg');
   background-size: cover;
   background-position: center;
 
   &__containers {
-    display: flex;
+    @include flex;
     justify-content: center;
     text-align: center;
     align-items: center;
@@ -30,9 +30,6 @@
 	@include tablet {
 		padding-top: 2rem;
 	}
-    // @include mob {
-    //   padding-top: 2rem;
-    // }
   }
 
   &__img {

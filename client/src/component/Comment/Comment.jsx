@@ -1,66 +1,81 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import axios from 'axios';
 import './Comment.scss';
 import { useState } from 'react';
 
 const Base_URL = 'http://localhost:8085';
+const Base_Image = 'http://localhost:8085/images';
 
 export default function Comment() {
-const intialValues = {name: '', comment: ''};
-const [formValue, setFormValue] = useState(intialValues);
-const [formError, setFormError] = useState({});
-const [comments, setComments] = useState([]);
+  const intialValues = { name: '', comment: '' };
+  const [formValue, setFormValue] = useState(intialValues);
+  const [formError, setFormError] = useState({});
+  const [comments, setComments] = useState([]);
+  const [getComment, setGetComment] = useState([]);
+
+  const date = new Date();
+  const formatedDate = `${('0' + (date.getMonth() + 1)).slice(-2)}/${(
+    '0' + date.getDate()
+  ).slice(-2)}/${date.getFullYear()}`;
 
   const handleChange = (e) => {
-	const {name, value} = e.target;
-	setFormValue({...formValue, [name]: value});
-	setFormError({...formError, [name]: ''});
-  }
-
-  const fetchComments = async () => {
-	try {
-		const response = await axios.get(`${Base_URL}/comment`);
-		setComments(response.data);
-
-	} catch (error) {
-		console.log('Error fetching comments', error);
-
-	}
+    const { name, value } = e.target;
+    setFormValue({ ...formValue, [name]: value });
+    setFormError({ ...formError, [name]: '' });
   };
-  fetchComments();
 
-const validate = (values) => {
-	const errors = {};
-	if(!values.name) {
-		errors.name = "Please enter your name";
-	} 
-	if(!values.comment) {
-		errors.comment = "please enter a comment here"
-	}
-	return errors;
+  const validate = (values) => {
+    const errors = {};
+    if (!values.name) {
+      errors.name = 'Please enter your name';
+    }
+    if (!values.comment) {
+      errors.comment = 'please enter a comment here';
+    }
+    return errors;
+  };
+  const fetchComments = async () => {
+    try {
+      const response = await axios.get(`${Base_URL}/comment`);
+      setGetComment( response.data);
+    } catch (error) {
+      console.log('Error fetching comments', error);
+    }
+	
+  };
 
-}
+  useEffect(() => {
+	fetchComments();
+  }, []);
 
- async function handleForm(event) {
+  async function handleForm(event) {
     event.preventDefault();
 
-	const errors = validate(formValue);
-	if(Object.keys(errors).length !== 0) {
-		setFormError(errors);
-		return;
-	}
+    const errors = validate(formValue);
+    if (Object.keys(errors).length !== 0) {
+      setFormError(errors);
+      return;
+    }
 
-	try {
-		const response = await axios.post(`${Base_URL}/comment`,formValue);
-	const postData = response.data;
-	setComments([...comments, postData]);
-	setFormValue(intialValues);
-	event.target.reset();
-
-	} catch (error) {
-		console.log('Error posting new Comment', error);
-	}
+    try {
+      const response = await axios.post(`${Base_URL}/comment`, formValue);
+      const postData = response.data;
+      setComments([...comments, postData]);
+      setFormValue(intialValues);
+      event.target.reset();
+	  fetchComments();
+    } catch (error) {
+      console.log('Error posting new Comment', error);
+    }
   }
+
+
+
+
+
+//   useEffect(() => {
+// 	fetchComments();
+//   }, []);
 
   return (
     <div className='comment'>
@@ -75,11 +90,13 @@ const validate = (values) => {
             type='text'
             name='name'
             id='name'
-			value={formValue.name}
+            value={formValue.name}
             placeholder='Enter your name'
-			onChange={handleChange}
+            onChange={handleChange}
           />
-          {formError.name && <div className='comment__error'>{formError.name}</div>}
+          {formError.name && (
+            <div className='comment__error'>{formError.name}</div>
+          )}
         </div>
         <div className='comment__container'>
           <label htmlFor='comment' className='comment__label'>
@@ -91,25 +108,36 @@ const validate = (values) => {
             id='comment'
             name='comment'
             placeholder='Comment here'
-			value={formValue.comment}
-			onChange={handleChange}
+            value={formValue.comment}
+            onChange={handleChange}
           />
-          {formError.comment && <div className='comment__error'>{formError.comment}</div>}
+          {formError.comment && (
+            <div className='comment__error'>{formError.comment}</div>
+          )}
         </div>
         <div className='comment__button'>
-          <button type="submit" className='comment__btn'>Submit</button>
+          <button type='submit' className='comment__btn'>
+            Submit
+          </button>
         </div>
       </form>
-	  <ul className='comment__list'>
-		{comments.map((comment) => (
-			<li key={comment.id} className='comment__item'>
-			<h3 className='comment__subtitle'>{comment.name} </h3>
-			<h3 className='comment__subtitle2'>{comment.comment} </h3>
-			<button className='comment__delete'>Delete</button>
-			{/* <button>Edit</button> */}
-		</li>
-		))}
-	  </ul>
+      <ul className='comment__list'>
+		{getComment.map((comment) => (
+          <li key={comment.id} className='comment__item'>
+			<div className='comment__commentscontainer'>
+				<img className="comment__commentscontainer--image" src={`${Base_Image}/${comment.image}`} alt="comment" />
+	
+				<div className='comment__time'>
+					<h5 className='comment__subtitle'>{comment.name} </h5>
+					<p className='comment__formatdate'>{formatedDate}</p>
+				</div>
+			</div>  
+            <p className='comment__subtitle2'>{comment.comment} </p>
+            <button className='comment__delete'>Remove</button>
+            {/* <button>Edit</button> */}
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }

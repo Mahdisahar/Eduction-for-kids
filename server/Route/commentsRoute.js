@@ -4,9 +4,15 @@ const router = express.Router();
 const { v4: uuid } = require("uuid");
 
 function readcommentData() {
-	const commentData = fs.readFileSync('./data/comment.json');
+	try {
+		const commentData = fs.readFileSync('./data/comment.json');
 	const commentDataJson = JSON.parse(commentData);
 	return commentDataJson;
+	} catch(error) {
+		console.log('Error reading or parsing comment data', error);
+		return[];
+	}
+	
   }
 
 router.get('/', (req,res) => {
@@ -21,7 +27,8 @@ router.post('/', (req, res) => {
 		name: req.body.name ,
 		comment: req.body.comment,
 		id:uuid(),
-		
+		image: "commentimage.png",
+		timestamp:Date.now(),	
 	};
 	commentsData.unshift(newComment);
 

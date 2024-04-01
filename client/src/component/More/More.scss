@@ -7,6 +7,8 @@
 
 	&__title {
 		font-size: $primary-font;
+		letter-spacing: 3px;
+
 	@include  gradient;
 	@include mob {
 		font-size: 1.5rem;
@@ -15,6 +17,7 @@
 
 	&__para {
 		color: $primary-color;
+
 		@include mob {
 			width: 80%;
 			margin: 0 auto;
@@ -54,7 +57,7 @@
 	}
 
 	&__item {
-		margin-bottom: 2rem;
+		margin-bottom: $primary-padding;
 	}
 
 	&__image {

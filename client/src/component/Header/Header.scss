@@ -2,7 +2,7 @@
 @use '../../partials//global' as *;
 .header {
   height: 25rem;
-background-image: url('../../images/purple.jpg');
+  background-image: url('../../images/purple.jpg');
   background-size: cover;
   background-position: center;
 
@@ -12,32 +12,31 @@ background-image: url('../../images/purple.jpg');
     text-align: center;
     align-items: center;
 
-	@include tablet {
-		flex-direction: column;
-	}
+    @include tablet {
+      flex-direction: column;
+    }
 
     @include mob {
       flex-direction: column;
-      padding-top: 2rem;
+      padding-top: $primary-padding;
     }
   }
 
   &__title {
     color: $secondary-color;
-    font-weight: bold;
     font-size: calc(1.375rem + 1.5vw);
 
-	@include tablet {
-		padding-top: 2rem;
-	}
+    @include tablet {
+      padding-top: $primary-padding;
+    }
   }
 
   &__img {
     width: 30rem;
 
-	@include tablet {
-		width: 25rem;
-	}
+    @include tablet {
+      width: 25rem;
+    }
 
     @include mob {
       width: 20rem;

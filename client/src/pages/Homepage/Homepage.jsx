@@ -1,5 +1,4 @@
-import React from 'react'
-import './Homepage.scss';
+import React from 'react';
 import NavbarLink from '../../component/Navbar/Navbar';
 import Header from '../../component/Header/Header';
 import Lesson from '../../component/Lesson/Lesson';

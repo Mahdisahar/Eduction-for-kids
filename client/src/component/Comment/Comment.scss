@@ -13,7 +13,7 @@
 
 	&__title {
 		@include  gradient;
-		padding-bottom: 2rem;
+		padding-bottom: $primary-padding;
 		text-align: center;
 	}
 
@@ -21,14 +21,14 @@
 	border: 1px solid $primary-color;
 	border-radius: 9px;
 	box-shadow: 2px 4px 2px black;
-	padding-bottom: 2rem;
+	padding-bottom: $primary-padding;
 
 	}
 
 	&__container {
 		@include flex; 
 		flex-direction: column;
-		margin: 2rem;
+		margin: $primary-padding;
 
 		@include mob {
 			margin: 1rem;
@@ -37,7 +37,6 @@
 
 	&__label {
 		color: $primary-color;
-		font-weight: bold;
 		padding-bottom: 1rem;
 	}
 
@@ -63,22 +62,24 @@
 		padding: 0.5rem;
 		@include backgroud-gradient;
 		color: $secondary-color;
-		font-weight: bold;
 		border: 1px solid $primary-color;
 		border-radius: 9px;
+		
+		&:hover {
+			color: $comment-color;
+		}
 	}
 
 	&__delete {
 		margin: 1rem;
 		color: $primary-color;
 		border: none;
-		font-weight: bold;
 		background-color: $secondary-color;
 	}
 
 	&__list {
 		list-style: none;
-		margin: 2rem;
+		margin: $primary-padding;
 
 		@include mob {
 			margin: 2rem 0;

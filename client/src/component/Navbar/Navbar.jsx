@@ -6,15 +6,6 @@ import Navbar from 'react-bootstrap/Navbar';
 import logo from '../../images/logo.jpg';
 import NavLink from 'react-bootstrap/esm/NavLink';
 
-// const Menu = () => ( 
-// 	<div>
-// 	<p><a href="#lesson">Lessons</a></p>
-// 	<p><a href="#learning">Learning</a></p>
-// 	<p><a href="#openion">Your Opinion</a></p>
-// 	<p><a href="#contact">Contact</a></p>
-// 	</div>  
-// )
-
 export default function NavbarLink() {
   const scrollToSection = (id) => {
     const section = document.getElementById(id);

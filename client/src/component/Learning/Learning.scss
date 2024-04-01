@@ -1,0 +1,30 @@
+@use '../../partials/variables' as *;
+@use '../../partials/global' as *;
+
+.learning {
+  min-height: 15rem;
+  padding-top: $primary-padding;
+  @include backgroud-gradient;
+
+  &__title {
+    text-align: center;
+    color: $secondary-color;
+
+    @include mob {
+      font-size: 1.5rem;
+    }
+  }
+
+  &__para {
+    text-align: center;
+    color: $secondary-color;
+    width: 50%;
+    margin: 2rem auto;
+    line-height: 30px;
+	padding-bottom: $primary-padding;
+
+    @include mob {
+      width: 70%;
+    }
+  }
+}

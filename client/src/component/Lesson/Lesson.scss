@@ -1,0 +1,65 @@
+@use '../../partials/variables' as*;
+@use '../../partials/global' as *;
+
+.lesson {
+	margin: 4rem 0;
+	text-align: center;
+
+	@include mob {
+		margin: 4rem 0;
+	}
+
+	&__title {
+		font-size: $primary-font;
+		@include  gradient;
+		@include mob {
+			font-size: 1.8rem;
+		}
+}
+
+&__list {
+	width: 70%;
+	margin: 2rem auto;
+	gap: 2rem;
+	@include styling;
+	padding-left: 0;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	
+	@include tablet {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	@include mob {
+		grid-template-columns: repeat(1, 1fr);
+		padding-left: 0;
+	}
+}
+
+&__image {
+	width: 100%;
+	border-radius: 9px;
+	box-shadow: 1px 1px 6px rgba($primary-color, 1.0);
+	transition: transform 1s ease-in-out;
+	
+	&:hover {
+		cursor: pointer;
+		  transform: scale(1.05);	
+	}
+	
+}
+
+&__link {
+	@include decoration;
+}
+
+&__subtitle {
+	color:$primary-color;
+	margin-top: 1rem;
+	margin-bottom: $primary-padding;
+	&:hover {
+		color: $comment-color;
+	}
+}
+	  
+}

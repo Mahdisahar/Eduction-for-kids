@@ -1,0 +1,45 @@
+[
+	{
+	 "id": 1,
+	 "website": "https://www.khanacademy.org/math/get-ready-courses",
+	 "image": "http://localhost:8085/images/math.gif",
+	 "title":"Math",
+	 "alt": "math"
+	},
+	{
+		"id": 2,
+		"website": "https://www.learningchocolate.com",
+		"image": "http://localhost:8085/images/english.gif",
+		"title":"English",
+		"alt": "english"
+	},
+	{
+		"id": 3,
+		"website": "https://www.esa.int/kids",
+		"image": "http://localhost:8085/images/science.gif",
+		"title":"Science",
+		"alt": "science"
+	},
+	{
+		"id": 4,
+		"website": "https://www.mathopolis.com/questions/quizzes.php",
+		"image": "http://localhost:8085/images/quizzes.gif",
+		"title":"Quizzes",
+		"alt": "quizzes"
+	}, 
+	{
+		"id": 5,
+		"website": "https://www.typing.com/",
+		"image": "http://localhost:8085/images/typing.gif",
+		"title":"Typing",
+		"alt": "typing"
+	},
+	{
+		"id": 6,
+	"website": "https://www.gamestolearnenglish.com",
+	"image": "http://localhost:8085/images/games.gif",
+	"title":"Games",
+	"alt": "games"
+
+	}
+]

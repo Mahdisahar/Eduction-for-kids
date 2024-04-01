@@ -1,0 +1,57 @@
+@use './variables' as *;
+@use './typography' as *;
+
+* {
+	font-family: 'rakkas', sans-serif;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	letter-spacing: 2px;
+  }
+
+
+$mobile-breakpoint: 320px;
+$tablet-breakpoint: 426px;
+
+$biggertablet-breakpoint: 426px;
+$moretablet-breakpoint: 768px;
+
+
+
+// $desktop-breakpoint: 1280px;
+// Breakpoint between 320px and 425px
+@mixin mob {
+	@media (min-width: #{$mobile-breakpoint}) and (max-width: #{$tablet-breakpoint - 1px}) {
+	  @content;
+	}
+  }
+
+  @mixin tablet {
+	@media (min-width: #{$biggertablet-breakpoint}) and (max-width: #{$moretablet-breakpoint - 1px}) {
+	  @content;
+	}
+  }
+  
+@mixin gradient {
+	background: linear-gradient(to right, #f32170, 
+                    #ff6b08, #cf23cf, #eedd44); 
+            -webkit-text-fill-color: transparent; 
+			background-clip: text; 
+}
+
+@mixin backgroud-gradient {
+	background: linear-gradient(90deg, rgba(36,0,33,1) 0%, rgb(82, 3, 125) 35%, rgb(141, 59, 241) 100%);
+
+}
+
+@mixin styling {
+	list-style: none;
+}
+
+@mixin decoration {
+	text-decoration: none;
+}
+
+@mixin flex {
+	display: flex;
+}

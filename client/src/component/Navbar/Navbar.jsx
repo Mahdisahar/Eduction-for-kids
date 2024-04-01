@@ -3,7 +3,7 @@ import './Navbar.scss';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import logo from '../../images/logo.jpg';
+import logo from '../../assets/images/logo.jpg';
 import NavLink from 'react-bootstrap/esm/NavLink';
 
 export default function NavbarLink() {

@@ -26,8 +26,3 @@ Node.js, and Express</h3>
 
 <h2>Author</h2>
 <h3>Sahar Mahdi</h3>
-
-<h2>SCREENSHOTS</h2>
-
-<h4>Desktop</h4>
-
